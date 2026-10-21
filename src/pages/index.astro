@@ -1,5 +1,5 @@
 ---
-import Navigation from '../components/Navigation.astro'
+import Navigation from '../components/Navigation.astro';
 ---
 
 <html lang="en">
@@ -11,6 +11,13 @@ import Navigation from '../components/Navigation.astro'
 		<meta name="generator" content={Astro.generator} />
 		<title>Masquerade of the Night</title>
 	</head>
+
+	<script>
+		import { consolePrints } from '../constants/strings';
+		console.log("Hi, nerd! 🤓 ");
+		console.log(consolePrints.asciiNerd);
+	</script>
+
 	<body>
 		<Navigation />
 		<h1>Masquerade of the Night</h1>
