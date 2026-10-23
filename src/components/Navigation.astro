@@ -62,14 +62,20 @@
 </div>
 
 <style>
+    #sideNavigator
+    {
+      background: black;
+      width: fit-content;
+    }
     #sideNavigator a 
     {
         /* TODO explain why display: block makes it vertical as desired when applied to each a element */
         display: block;
-        margin-bottom: 8px; /* TODO: Is px the best solution or no? */
+        margin-bottom: 1em;
+        color: white;
     }
     .indent-me
     {
-        text-indent: 20px; /* TODO: Is px the best solution or no? */
+        text-indent: 2em; /* TODO: em vs. rem? */
     }
 </style>
