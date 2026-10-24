@@ -1,18 +1,42 @@
 ---
 ---
+<script>
+  // Can I move this to TS? This is clunky
+  var dropdowns = document.getElementsByClassName("dropdown-button");
+  // Also, this shouldn't be one big fat [0] that's icky
+  var dropdownContainer = document.getElementsByClassName("dropdown-container")[0];
+  for (var i = 0; i < dropdowns.length; i++)
+  {
+    var dropdown = dropdowns[i];
+    dropdown.addEventListener("click", function() {
+      if (window.getComputedStyle(dropdownContainer).display === "block")
+      {
+        dropdownContainer.setAttribute("style", "display: none");
+      }
+      else
+      {
+        dropdownContainer.setAttribute("style", "display: block");
+      }
+    });
+  }
+</script>
 <div id="sideNavigator">
   <a href="#">Home </a>
-  <a href="#">Site </a>
-    <a href="#" class="indent-me">Webmaster</a>
-    <a href="#" class="indent-me">Now</a>
-    <a href="#" class="indent-me">Blog</a>
-    <a href="#" class="indent-me">Articles</a>
-    <a href="#" class="indent-me">To Do</a>
-    <a href="#" class="indent-me">Links and Graphics</a>
-    <a href="#" class="indent-me">Fandoms</a>
-    <a href="#" class="indent-me">Uses</a>
-    <a href="#" class="indent-me">Manifesto</a>
-    <a href="#" class="indent-me">FAQ</a>
+  <a class="dropdown-button">Site
+    <i class="fa fa-caret-down"></i> <!-- I can't see this currently because I need to add fontawesome -->
+  </a>
+    <div class="dropdown-container">
+      <a href="#" class="indent-me">Webmaster</a>
+      <a href="#" class="indent-me">Now</a>
+      <a href="#" class="indent-me">Blog</a>
+      <a href="#" class="indent-me">Articles</a>
+      <a href="#" class="indent-me">To Do</a>
+      <a href="#" class="indent-me">Links and Graphics</a>
+      <a href="#" class="indent-me">Fandoms</a>
+      <a href="#" class="indent-me">Uses</a>
+      <a href="#" class="indent-me">Manifesto</a>
+      <a href="#" class="indent-me">FAQ</a>
+    </div>
   <!-- Art, Writing, Music, Fan Works -->
   <a href="#">Me: Creative </a>
     <a href="#" class="indent-me">Artwork</a>
@@ -77,5 +101,11 @@
     .indent-me
     {
         text-indent: 2em; /* TODO: em vs. rem? */
+    }
+
+    /* TODO figure out a standard for case, do not mix dashes and camels */
+    .dropdown-container
+    {
+      display: none;
     }
 </style>
