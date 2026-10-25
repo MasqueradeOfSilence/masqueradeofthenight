@@ -1,5 +1,6 @@
 ---
 ---
+<script src="https://kit.fontawesome.com/ae2377133e.js" crossorigin="anonymous"></script>
 <script>
   // Can I move this to TS? This is clunky
   var dropdowns = document.getElementsByClassName("dropdown-button");
@@ -17,13 +18,30 @@
       {
         dropdownContainer.setAttribute("style", "display: block");
       }
+
+        // TODO still don't like this 0-index dependence. Would also like a smooth animation
+        // also abstract out to a function, also why is there a newline
+        var rightArrow = document.getElementsByClassName("right-arrow")[0];
+        var downArrow = document.getElementsByClassName("down-arrow")[0];
+        if (window.getComputedStyle(rightArrow).display === "block")
+        {
+          rightArrow.setAttribute("style", "display: none");
+          downArrow.setAttribute("style", "display: block");
+        }
+        else
+        {
+          rightArrow.setAttribute("style", "display: block");
+          downArrow.setAttribute("style", "display: none");
+        }
+
     });
   }
 </script>
 <div id="sideNavigator">
   <a href="#">Home </a>
   <a class="dropdown-button">Site
-    <i class="fa fa-caret-down"></i> <!-- I can't see this currently because I need to add fontawesome -->
+    <i class="fa-solid fa-chevron-right right-arrow"></i>
+    <i class="fa-solid fa-angle-down down-arrow"></i>
   </a>
     <div class="dropdown-container">
       <a href="#" class="indent-me">Webmaster</a>
@@ -107,5 +125,13 @@
     .dropdown-container
     {
       display: none;
+    }
+    .down-arrow
+    {
+      display: none;
+    }
+    .right-arrow
+    {
+      display: block;
     }
 </style>
