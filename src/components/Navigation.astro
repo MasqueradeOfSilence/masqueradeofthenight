@@ -10,27 +10,28 @@
   {
     var dropdown = dropdowns[i];
     dropdown.addEventListener("click", function() {
-      if (window.getComputedStyle(dropdownContainer).display === "block")
+      console.log("omg I got clicked");
+      if (window.getComputedStyle(dropdownContainer).display === "inline-block")
       {
         dropdownContainer.setAttribute("style", "display: none");
       }
       else
       {
-        dropdownContainer.setAttribute("style", "display: block");
+        dropdownContainer.setAttribute("style", "display: inline-block");
       }
 
         // TODO still don't like this 0-index dependence. Would also like a smooth animation
         // also abstract out to a function, also why is there a newline
         var rightArrow = document.getElementsByClassName("right-arrow")[0];
         var downArrow = document.getElementsByClassName("down-arrow")[0];
-        if (window.getComputedStyle(rightArrow).display === "block")
+        if (window.getComputedStyle(rightArrow).display === "inline-block")
         {
           rightArrow.setAttribute("style", "display: none");
-          downArrow.setAttribute("style", "display: block");
+          downArrow.setAttribute("style", "display: inline-block");
         }
         else
         {
-          rightArrow.setAttribute("style", "display: block");
+          rightArrow.setAttribute("style", "display: inline-block");
           downArrow.setAttribute("style", "display: none");
         }
 
@@ -39,7 +40,7 @@
 </script>
 <div id="sideNavigator">
   <a href="#">Home </a>
-  <a class="dropdown-button">Site
+  <a href="#" class="dropdown-button">Site
     <i class="fa-solid fa-chevron-right right-arrow"></i>
     <i class="fa-solid fa-angle-down down-arrow"></i>
   </a>
@@ -104,34 +105,38 @@
 </div>
 
 <style>
-    #sideNavigator
-    {
-      background: black;
-      width: fit-content;
-    }
-    #sideNavigator a 
-    {
-        /* TODO explain why display: block makes it vertical as desired when applied to each a element */
-        display: block;
-        margin-bottom: 1em;
-        color: white;
-    }
-    .indent-me
-    {
-        text-indent: 2em; /* TODO: em vs. rem? */
-    }
-
-    /* TODO figure out a standard for case, do not mix dashes and camels */
-    .dropdown-container
-    {
-      display: none;
-    }
-    .down-arrow
-    {
-      display: none;
-    }
-    .right-arrow
-    {
+  i
+  {
+    display: inline-block;
+  }
+  #sideNavigator
+  {
+    background: black;
+    width: fit-content;
+  }
+  #sideNavigator a 
+  {
+      /* TODO explain why display: block makes it vertical as desired when applied to each a element */
       display: block;
-    }
+      margin-bottom: 1em;
+      color: white;
+  }
+  .indent-me
+  {
+      text-indent: 2em; /* TODO: em vs. rem? */
+  }
+
+  /* TODO figure out a standard for case, do not mix dashes and camels */
+  .dropdown-container
+  {
+    display: none;
+  }
+  .down-arrow
+  {
+    display: none;
+  }
+  .right-arrow
+  {
+    display: inline-block;
+  }
 </style>
