@@ -4,14 +4,14 @@
 <script>
   // Can I move this to TS? This is clunky
   var dropdowns = document.getElementsByClassName("dropdown-button");
-  // Also, this shouldn't be one big fat [0] that's icky, especially because we probably need to iterate through all of them
+  // Iterate through every container and corresponding dropdown button, and hook them up to each other.
   // TODO need to fix the creative menu so it doesn't open this one, then refactor to TS after each menu is clean
   var dropdownContainer = document.getElementsByClassName("dropdown-container")[0];
   for (var i = 0; i < dropdowns.length; i++)
   {
     var dropdown = dropdowns[i];
     dropdown.addEventListener("click", function() {
-      console.log("omg I got clicked");
+      // console.log("omg I got clicked");
       if (window.getComputedStyle(dropdownContainer).display === "inline-block")
       {
         dropdownContainer.setAttribute("style", "display: none");
